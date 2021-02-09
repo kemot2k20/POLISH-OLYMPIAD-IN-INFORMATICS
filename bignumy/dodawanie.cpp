@@ -17,10 +17,6 @@ vector<int> add(string& a, string& b) {
 	vector<int> A(dl, 0), B(dl, 0), C;
 	for (int i = sajz(a) - 1; i >= 0; i --) A[i] = (int) a[i] - '0';
 	for (int i = dl - 1, j = sajz(b) - 1; j >= 0; i --, j --) B[i] = (int) b[j] - '0';
-	for (int i = 0; i < dl; i ++) cout << A[i];
-	cout << '\n';
-	for (int i = 0; i < dl; i ++) cout << B[i];
-	cout << '\n';
 	int reszta = 0;
 	for (int i = dl - 1; i >= 0; i --) {
 		if (A[i] + B[i] + reszta < 10) {
