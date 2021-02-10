@@ -68,8 +68,8 @@ long long mpow2(long long x, long long y, long long mod) {
     return ret % mod;
 }
 int isPrime(long long p) { // implements by miller-babin
+	if (p == 2)				return 1;
     if (p < 2 || !(p&1))	return 0;
-    if (p == 2)				return 1;
     long long q = p-1, a, t;
     int k = 0, b = 0;
     while (!(q&1))	q >>= 1, k++;
@@ -130,7 +130,7 @@ int main(){
     cin.tie(0);
     sieve();
 	long long n;
-  cin >> n;
+  	cin >> n;
 	
 	vector<long long> f;
 	map<long long, int> r;
