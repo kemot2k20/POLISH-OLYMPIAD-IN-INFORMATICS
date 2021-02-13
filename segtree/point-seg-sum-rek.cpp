@@ -11,7 +11,7 @@ typedef long double ld;
 typedef long long ll;
 
 const int N = (1 << 19);
-int t[N];
+ll t[N];
 int a[N];
 int n;
 
@@ -38,7 +38,7 @@ void update(int v, int tl, int tr, int l, int r, int add) {
     }
 }
 
-int get(int v, int tl, int tr, int pos) {
+ll get(int v, int tl, int tr, int pos) {
     if (tl == tr)
         return t[v];
     int tm = (tl + tr) / 2;
@@ -54,9 +54,9 @@ int main() {
 	cin >> n;
 	for (int i = 0; i < n; i ++) cin >> a[i];
 	build(1, 0, n-1);
-	int t;
-	cin >> t;
-	while (t--) {
+	int q;
+	cin >> q;
+	while (q--) {
 		int com;
 		cin >> com;
 		if (com == 1) {
