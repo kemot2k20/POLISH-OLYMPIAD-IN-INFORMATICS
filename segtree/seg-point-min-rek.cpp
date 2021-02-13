@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#define INF 1e9
 #define all(x) x.begin(), x.end()
 #define sajz(x) (int)x.size()
 #define pb push_back
@@ -39,9 +40,9 @@ void update(int v, int tl, int tr, int pos, int new_val) {
     }
 }
 
-int	mini(int v, int tl, int tr, int l, int r) {
+int mini(int v, int tl, int tr, int l, int r) {
     if (l > r) 
-        return 0;
+        return INF;
     if (l == tl && r == tr) {
         return t[v];
     }
@@ -56,9 +57,9 @@ int main() {
 	cin >> n;
 	for (int i = 0; i < n; i ++) cin >> a[i];
 	build(1, 0, n-1);
-	int t;
-	cin >> t;
-	while (t--) {
+	int q;
+	cin >> q;
+	while (q--) {
 		int com;
 		cin >> com;
 		if (com == 1) {
