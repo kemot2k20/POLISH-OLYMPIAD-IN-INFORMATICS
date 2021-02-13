@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 #define INF 1e9
+#define INFl 1e18
 #define all(x) x.begin(), x.end()
 #define sajz(x) (int)x.size()
 #define pb push_back
@@ -53,7 +54,7 @@ void update(int v, int tl, int tr, int l, int r, int addend) {
 
 ll query(int v, int tl, int tr, int l, int r) {
     if (l > r)
-        return -INF;
+        return -INFl;
     if (l <= tl && tr <= r)
         return t[v];
     push(v);
