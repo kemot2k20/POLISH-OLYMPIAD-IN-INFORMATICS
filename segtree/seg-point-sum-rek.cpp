@@ -11,7 +11,7 @@ typedef long double ld;
 typedef long long ll;
 
 const int N = (1 << 19);
-int t[N];
+ll t[N];
 int a[N];
 int n;
 
@@ -57,9 +57,9 @@ int main() {
 	cin >> n;
 	for (int i = 0; i < n; i ++) cin >> a[i];
 	build(1, 0, n-1);
-	int t;
-	cin >> t;
-	while (t--) {
+	int q;
+	cin >> q;
+	while (q--) {
 		int com;
 		cin >> com;
 		if (com == 1) {
