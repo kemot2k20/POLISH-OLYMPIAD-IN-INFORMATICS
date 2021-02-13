@@ -12,7 +12,7 @@ typedef long double ld;
 typedef long long ll;
 
 const int N = (1 << 19);
-int t[N];
+ll t[N];
 int a[N];
 int n;
 
@@ -40,7 +40,7 @@ void update(int v, int tl, int tr, int pos, int new_val) {
     }
 }
 
-int maks(int v, int tl, int tr, int l, int r) {
+ll maks(int v, int tl, int tr, int l, int r) {
     if (l > r) 
         return -INF;
     if (l == tl && r == tr) {
