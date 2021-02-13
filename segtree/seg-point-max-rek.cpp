@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#define INF 1e9
 #define all(x) x.begin(), x.end()
 #define sajz(x) (int)x.size()
 #define pb push_back
@@ -11,7 +12,6 @@ typedef long double ld;
 typedef long long ll;
 
 const int N = (1 << 19);
-const int INF = 1e9;
 int t[N];
 int a[N];
 int n;
@@ -57,9 +57,9 @@ int main() {
 	cin >> n;
 	for (int i = 0; i < n; i ++) cin >> a[i];
 	build(1, 0, n-1);
-	int t;
-	cin >> t;
-	while (t--) {
+	int q;
+	cin >> q;
+	while (q--) {
 		int com;
 		cin >> com;
 		if (com == 1) {
