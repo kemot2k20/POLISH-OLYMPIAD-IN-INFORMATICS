@@ -38,7 +38,7 @@ int query_lca(int u, int v) {
 	if (czy_przodek(u, v)) return u;
 	if (czy_przodek(v, u)) return v;
 	for (int i = cnt; i >= 0; i --) {
-		if (!czy_przodek(u, jump[v][i])) {
+		if (!czy_przodek(jump[v][i], u)) {
 			v = jump[v][i];
 		}
 	}
