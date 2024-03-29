@@ -30,8 +30,55 @@ vi suffix_array(string &s) {
 }   
 
 
+// count_sort z shiftem w lewo (szybsze nlog)
 
-// wersja druga (niby O(nlog))
+void count_sort(vi& ind, vi& g) {
+    int n = ind.size();
+    vi cnt(n);
+    for (auto x : g) cnt[x]++;
+    vi pos(n);
+    for (int i = 1; i < n; i ++) pos[i] = pos[i-1] + cnt[i-1];
+    vi new_ind(n);
+    for (auto x : ind) {
+        new_ind[pos[g[x]]] = x;
+        pos[g[x]] ++;
+    }
+    ind = new_ind;
+}
+
+vi suffix_array(string &s) {
+    s += '$';
+    int n = s.size();
+
+    vi g(n), ind(n);
+    for (int i = 0; i < n; i ++) ind[i] = i;
+
+    auto cmp = [&](int a, int b) { return s[a] < s[b]; };
+    sort(all(ind), cmp);
+
+    for (int i = 1; i < n; i ++) g[ind[i]] = g[ind[i-1]] + (s[ind[i]] != s[ind[i-1]]);
+
+    int k = 0;
+    while ((1 << k) < n) {
+        for (int i = 0; i < n; i ++) ind[i] = (ind[i] - (1 << k) + n) % n;
+        count_sort(ind, g);
+
+        vi new_g(n);
+        new_g[ind[0]] = 0;
+        for (int i = 1; i < n; i ++) {
+            pii cur = {g[ind[i]], g[(ind[i] + (1 << k)) % n]};
+            pii prev = {g[ind[i-1]], g[(ind[i-1] + (1 << k)) % n]};
+            new_g[ind[i]] = new_g[ind[i-1]] + (cur != prev);
+        }
+        g = new_g;
+        k ++;
+    }
+
+    return ind;
+}   
+
+
+// radix_sort (wolniejsze nlog)
 
 void radix_sort(vector<pair<pii, int>> &v) {
     int n = v.size();
